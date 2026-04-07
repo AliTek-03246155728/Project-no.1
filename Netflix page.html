@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ali Hassan</title>
+  <style>
+      #sec1 {background-image:url('https://i.postimg.cc/MH6Qr9N9/netflix.jpg'); background-size:cover;width:100%; height:150%; /*background:center;*/ border:0.5vw solid white;}
+      #secmndv{width:100%; background:rgba(0,0,0,0.7);}
+      #head{max-width:1105px;margin:auto;padding:10px;}
+      .grid{display: flex;justify-content:space-between;align-items:Center;grid-template-columns: ;}
+      #removebgpic{background:;  width:140px;display:block;}
+      #select{ border:2px solid white;border-radius:5px; color:white; background:black; padding:6px 29px;padding-left:30px;}
+      .grid > div > div {  display: flex; align-items: center; gap: 10px; justify-content: flex-end;}
+      #signbtn{border-radius: 5px; background:red; color:white; padding:4px; }
+       #bannerlastmaindiv{
+         max-width: 1105px;margin:auto; padding:0px 20px;height:auto; line-height:100px; text-align:center;}
+      header h1{color:white;font-size:55px; line-height:70px; padding:0px;}
+      header h4{color:white; font-weight:bold; line-height:60px; font-size:21px;}
+      header p{color:white; font-weight:500; line-height:53px; font-size:17px;}
+      #divofform{ line-height:53px; margin:auto; padding-top:2px;}
+      #form{display:grid; grid-template-columns:1fr; gap:10px;}
+      form input{border-radius:5px;height:57px; background:transparent; border:1px solid #ccc6; padding-left:14px; }
+      form button{background:red;padding:0 5px;border-radius:5px;height:57px; color:white;font-size:24px; font-weight:bold;}
+      #section2 {background:black;width:100%;margin:auto;}
+      #section2 h1{color:white; max-width:1105px;  margin:auto;font-size:24px;font-weight:semibold;padding-top:30px;}
+      #section2 #div1{padding-left:98px; padding:14px 0;}
+      #section2 select{border:1px solid #ccc9;border-radius:5px;background:transparent;padding:8px 10px;justify-content:center; font-size:17px; color:white; padding-right:20px;}
+      #section2 #div2{display: flex;
+          align-items: center;
+          border-radius: 8px;
+          max-width: 86%;
+          height:253px;
+          position: relative;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 9.5%;
+          column-gap: 4.3%;}
+      .row-posters {
+          display: flex;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          padding: 20px;}
+      .row-posters::-webkit-scrollbar {
+          display: none;}
+      .card {
+          position: relative;
+          margin-right: 10px;}
+          .card img,
+      .card video {
+          width: 150px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: transform 0.3s;}
+      .card img:hover{
+          transform: scale(1.1);}
+      .card span {
+          position: absolute;
+          top: 5px;
+          left: 10px;
+          color: white;
+          font-weight: bold;}
+/* Fullscreen Viewer */
+      #viewer {
+          position: fixed; top: 0; left: 0;  width: 100%;  height: 100%; background: black; display: none; justify-content: center; align-items: center;z-index: 9999;}
+      #viewer img{width: 100%; height: 100;  object-fit: cover;}
+      #section2 button{ color:white; height:16%;border-radius:8px;font-size: 25px; background: rgba(0,0,0,0.5); border: none; cursor: pointer;}
+      #section3{max-width:100%;padding-left:50px;background:black; padding-top:5%;}
+      #section3 h1{color:white;font-size:24px;font-weight;bold; padding-left:97px;padding-top:15px;}
+      #section3 div{display: flex;
+          overflow-x: auto;  
+          overflow-y: hidden;
+          padding: 20px;
+          gap:8px;
+          scroll-behavior: smooth; 
+          gap:3px; padding-top:15px;
+          padding-left:50px; max-width: 86%; padding-right:136px;}
+      #section3 div::-webkit-scrollbar {
+          display: none; 
+          } 
+      #section3 img{height:317px; width:152px; border-radius:15px;}
+      #section4{background:black; padding-top:5%;}
+      #section4 h1{font-weight:bold; font-size:27px; color:white; padding-left:165px;}
+      .sec4div5{/*display:grid; grid-template-rows:repeat(6,1fr); gap:8px; padding-left:8px; padding-top:16px; padding-right:165px;*/display: none;
+  transition: all 0.3s ease;}
+      .sec4div3{font-size:26.5px; color:white; background:#333; position: relative;transition: transform 0.3s ease;}
+      .rotate {
+  transform: rotate(45deg);
+}
+      .sec4div3 h3:hover{background:#444; padding:27px 27px 27px 0; cursor:pointer; color:white;}
+      .sec4div3 > div:first-child { display: flex;  justify-content:space-between;  align-items: center;    padding: 20px;  cursor: pointer;}
+      .sec4div3 span{font-weight:100;color:white; right:23px; font-size:70px; position: static; bottom: 0px;font-size: 40px;  transition: 0.3s;}
+      .sec4div5 {display: none;
+         background: #222;
+         padding: 20px; color:white; font-size:25px; border-top: 1px solid #444;  height: auto; padding-left:25px; transform-origin: top; cursor:text;}
+      #section5{background:black;}
+      #section5 p{color:white; font-weight:500; line-height:53px;font-size:18px; text-align:center;}
+      #section5 div{max-width:870px; line-height:53px; margin:auto; padding-top:5px;}
+      #section5 form{display: grid; grid-template-columns: 1fr auto; gap:10px;}
+      #section5 input{border-radius:5px;height:62px; background:transparent; border:1px solid #ccc6; padding-left:14px; font-size:21px;}
+      #section5 div form button{background:red; padding:0 5px; border-radius:5px; height:62px;color:white; font-size:28px; font-weight:bold;}
+      #section5 h2{padding-left:167px; color:#aaa; padding-top:68px; font-size:20px; font-weight:bold; text-decoration:underline; underline-offset-1}
+      #sec5div2{display:grid; grid-template-columns:repeat(4,1fr); max-width:1105px; padding-left:0px; padding-top:36.5px; font-weight:500; color:#aaa;font-size:16px; line-height:37.2px;}
+      #sec5div8{position:relative; padding-top:57px;}
+      #sec5div8 img{width:20px;color:white; position:absolute; top: 10px; left: 5px;}
+      #sec5div8 select{border:2px solid white; padding:6px 29px; border-radius:5px; color:white; background:#111;}
+      #sec5div8 h3{font-size:17px; line-height:100px;}
+      
+      /* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+  #bannerlastmaindiv h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+  #bannerlastmaindiv h4 {
+    font-size: 18px;
+  }
+
+  #removebgpic {
+    width: 120px;
+  }
+
+  #section3 div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #section4 h1 {
+    padding-left: 20px;
+  }
+
+  #section5 h2 {
+    padding-left: 20px;
+  }
+
+  #sec5div2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+   .grid > div > div {
+    flex-wrap: wrap;  justify-content:center;  }
+  #select {
+    padding: 6px 20px; }
+  #signbtn {
+    padding: 6px 10px;  }
+  #bannerlastmaindiv {
+    padding: 50px 10px;
+    line-height: normal;
+  }
+
+  #bannerlastmaindiv h1 {
+    font-size: 24px;
+  }
+
+  #bannerlastmaindiv h4 {
+    font-size: 16px;
+  }
+
+  #bannerlastmaindiv p {
+    font-size: 14px;
+  }
+
+  #form {
+    grid-template-columns: 1fr;
+  }
+
+  form button {
+    font-size: 18px;
+  }
+
+  #removebgpic {
+    width: 100px;
+  }
+
+  #section2 h1 {
+    font-size: 18px;
+  }
+
+  .card img {
+    width: 120px;
+  }
+
+  #section3 img {
+    width: 120px;
+    height: auto;
+  }
+
+  #section4 h1 {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+  .sec4div3 h3 {
+    font-size: 16px;
+  }
+
+  #section5 form {
+    grid-template-columns: 1fr;
+  }
+
+  #section5 input {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  #section5 div form button {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  #sec5div2 {
+    grid-template-columns: 1fr;
+    padding-left: 10px;
+  }
+
+}
+      
+    </style>
+</head>
+
+<body>
+      <!--banner section part start mensol institute-->
+
+  <section id="sec1">
+    <div id="secmndv">
+      <header id="head">
+        <div class="grid">
+          <figure >
+            <img src='https://i.postimg.cc/dVYgLrMq/download-removebg.png' id="removebgpic" alt="nhi aai">
+          </figure>
+          <div>
+            <div>
+              <div style="position:relative;display:flex;justify-content:center;">
+                <img src="https://i.postimg.cc/pTzDhhbq/language.png" style="color:white; position: absolute; width:20px; top:6px; left:5px;" decoration alt="nai aai">
+                <select id="select">
+                  <option>English</option>
+                  <option>Urdu</option>
+                </select>
+              </div>
+              <button id="signbtn">Sign In</button>
+            </div>
+          </div>
+        </div>
+      <div id="bannerlastmaindiv">
+        <h1>Unlimited movies, TV shows, and more
+        </h1>
+        <h4>Starts at Rs 250. Cancel anytime.</h4>
+        <p>Ready to watch? Enter your email to create or
+          restart your membership. </p>
+        <div id="divofform">
+          <form id="form">
+            <input type="text" name="" value="" placeholder="Email address">
+            <button>Get Started
+              ></button>
+          </form>
+        </div>
+      </div>
+     </header>
+    </div>
+  </section>
+  <!--banner section part end-->
+  <!--trending now section start-->
+  
+  <div id="section2" >
+    <h1>Trending Now</h1>
+    <div id="div1">
+      <select>
+        <option class="text-black">Pakistan</option>
+        <option class="text-black">Global</option>
+      </select>
+      <select style="margin-left:19px;">
+        <option class="text-black">Movies</option>
+        <option class="text-black">TV Shows</option>
+      </select>
+    </div>
+    <div id="div2">
+          <button class="left">⬅</button>
+    <div class="row-posters" id="slider">
+        <div class="card">
+            <span>1</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+       <div class="card">
+            <span>2</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>3</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>4</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>5</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>6</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>7</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>8</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>9</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>10</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>11</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+        <div class="card">
+            <span>12</span>
+            <img src="https://i.postimg.cc/yxNpFy1Z/ali-hassan.jpg" id="picsection2">
+        </div>
+      </div>
+        <button class="right">➡</button>
+
+    </div>
+    <div id="viewer">
+        <img id="viewer-img">
+    </div>
+  </div>
+  <!--trending now section end-->
+  <!--More Reasons to Join section start-->
+  <div id="section3">
+    <h1>More Reasons to Join </h1>
+    <div>
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+      <img src="https://i.postimg.cc/0jpRBfgG/images.jpg">
+    </div>
+  </div>
+  <!--More Reasons to Join section start-->
+  <!--Frequently Asked Questions section start-->
+  <div id="section4">
+    <h1>Frequently Asked Questions</h1>
+    <div id="sec4div">
+      <div class="sec4div3">
+        <div>
+          <h3>What is Netflix?</h3>
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+            documentaries, and more on thousands of internet-connected devices.</p><br>
+          <p> You can watch as much as you want, whenever you want without a single commercial – all for one low monthly
+            price. There's always something new to discover and new TV shows and movies are added every week!</p>
+        </div>
+      </div>
+      <div class="sec4div3">
+        <div>
+          <h3>How much does Netflix cost?
+          </h3>
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly
+            fee. Plans range from Rs 250 to Rs 1,100 a month. No extra costs, no contracts.</p>
+        </div>
+      </div>
+      <div class="sec4div3">
+        <div>
+          <h3>Where can I watch?</h3> 
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com
+            from your personal computer or on any internet-connected device that offers the Netflix app, including smart
+            TVs, smartphones, tablets, streaming media players and game consoles.</p><br>
+          <p>You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're
+            on the go and without an internet connection. Take Netflix with you anywhere.</p>
+        </div>
+      </div>
+      <div class="sec4div3">
+        <div>
+          <h3>How do I cancel?</h3>
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account
+            online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
+        </div>
+      </div>
+      <div class="sec4div3">
+        <div>
+          <h3>What can I watch on Netflix?
+          </h3>
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix
+            originals, and more. Watch as much as you want, anytime you want.</p>
+        </div>
+      </div>
+      <div class="sec4div3">
+        <div>
+          <h3>Is Netflix good for kids?</h3>
+          <span>+</span>
+        </div>
+        <div class="sec4div5">
+          <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy
+            family-friendly TV shows and movies in their own space.</p><br>
+          <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of
+            content kids can watch and block specific titles you don’t want kids to see.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Frequently Asked Questions section end-->
+  <!--last section started-->
+  <div id="section5">
+    <p>Ready to watch? Enter your email to create
+      or restart your membership. </p>
+    <div>
+      <form>
+        <input type="text" name="" value="" placeholder="Email address">
+        <button>Get Started ></button>
+      </form>
+    </div>
+    <h2>Questions?
+      Contact us.</h2>
+    <div id="sec5div2">
+      <div class="underline underline-offset-1">
+        <ul class="text-neutral-400">
+          <li>FAQ</li>
+          <li>Investor Relations</li>
+          <li>Privacy</li>
+          <li>Speed Test</li>
+        </ul>
+      </div>
+      <div class="underline underline-offset-1">
+        <ul class="text-neutral-400">
+          <li>Help Center</li>
+          <li>Jobs</li>
+          <li>Cookie Preferences</li>
+          <li>
+            Legal Notices</li>
+        </ul>
+      </div>
+      <div class="underline underline-offset-1">
+        <ul class="text-neutral-400">
+          <li>Account</li>
+          <li>Ways to Watch</li>
+          <li>
+            Corporate Information</li>
+          <li>Only on Netflix</li>
+        </ul>
+      </div>
+      <div class="underline underline-offset-1">
+        <ul class="text-neutral-400">
+          <li>Media Center</li>
+          <li>Terms of Use</li>
+          <li>
+            Contact Us</li>
+        </ul>
+      </div>
+      <div id="sec5div8">
+        <img src="https://i.postimg.cc/pTzDhhbq/language.png" id="endimg" decoration alt="nai aai">
+        <select>
+          <option>English</option>
+          <option>Urdu</option>
+        </select>
+        <h3>Netflix Pakistan</h3>
+      </div>
+    </div>
+    <!--last section end-->
+</body>
+<script>// ================= LANGUAGE TRANSLATION =================
+
+// Simple text mapping (English → Urdu)
+const translations = {
+  ur: {
+    title: "لامحدود فلمیں، ٹی وی شوز اور مزید",
+    subtitle: "250 روپے سے شروع۔ کسی بھی وقت منسوخ کریں۔",
+    ready: "دیکھنے کے لیے تیار؟ اپنا ای میل درج کریں",
+    trending: "ٹرینڈنگ",
+    faq: "اکثر پوچھے گئے سوالات"
+  },
+  en: {
+    title: "Unlimited movies, TV shows, and more",
+    subtitle: "Starts at Rs 250. Cancel anytime.",
+    ready: "Ready to watch? Enter your email",
+    trending: "Trending Now",
+    faq: "Frequently Asked Questions"
+  }
+};
+
+// get selects (top + bottom)
+let selects = document.querySelectorAll("select");
+
+selects.forEach((sel) => {
+  sel.addEventListener("change", () => {
+
+    let lang = sel.value === "Urdu" ? "ur" : "en";
+
+    // Banner text
+    document.querySelector("#bannerlastmaindiv h1").innerText =
+      translations[lang].title;
+
+    document.querySelector("#bannerlastmaindiv h4").innerText =
+      translations[lang].subtitle;
+
+    document.querySelector("#bannerlastmaindiv p").innerText =
+      translations[lang].ready;
+
+    // Section titles
+    document.querySelector("#section2 h1").innerText =
+      translations[lang].trending;
+
+    document.querySelector("#section4 h1").innerText =
+      translations[lang].faq;
+
+  });
+});
+
+
+// ================= IMAGE FULLSCREEN =================
+
+const viewer = document.getElementById("viewer");
+const viewerImg = document.getElementById("viewer-img");
+
+const images = document.querySelectorAll("#section2 img, #section3 img");
+
+images.forEach((img) => {
+  img.addEventListener("click", () => {
+    viewer.style.display = "flex";
+    viewerImg.src = img.src;
+    document.body.style.overflow = "hidden"; // scroll band
+  });
+});
+
+viewer.addEventListener("click", () => {
+  viewer.style.display = "none";
+  document.body.style.overflow = "auto"; // scroll wapas
+});
+
+
+// ================= SLIDER FIX =================
+
+const slider = document.getElementById("slider");
+
+document.querySelector(".right").addEventListener("click", () => {
+  slider.scrollLeft += 300;
+});
+
+document.querySelector(".left").addEventListener("click", () => {
+  slider.scrollLeft -= 300;
+});
+
+
+// ================= FAQ WORKING =================
+
+let questions = document.querySelectorAll("#sec4div > .sec4div3");
+
+questions.forEach((item, index) => {
+
+  let question = item.children[0];
+  let answer = item.children[1];
+  let icon = question.querySelector("span");
+
+  // hide by default
+  answer.style.display = "none";
+
+  question.addEventListener("click", () => {
+
+    // close others
+    questions.forEach((el, i) => {
+      if (i !== index) {
+        el.children[1].style.display = "none";
+        el.children[0].querySelector("span").style.transform = "rotate(0deg)";
+      }
+    });
+
+    // toggle current
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+      icon.style.transform = "rotate(0deg)";
+    } else {
+      answer.style.display = "block";
+      icon.style.transform = "rotate(45deg)";
+    }
+
+  });
+
+});</script>
+
+</html>
